@@ -16,8 +16,8 @@ import java.util.Optional;
 @Service
 public class BookServiceImpl implements BookService {
 
-    private final BookRepository bookRepository;  // Репозитори за работа с книги (BookEntity)
-    private final AuthorRepository authorRepository; // Репозитори за работа с автори (AuthorEntity)
+    private final BookRepository bookRepository;
+    private final AuthorRepository authorRepository;
 
     // Конструктор, който инжектира зависимостите
     public BookServiceImpl(BookRepository bookRepository, AuthorRepository authorRepository) {
@@ -88,6 +88,7 @@ public class BookServiceImpl implements BookService {
     // Преобразуване на BookEntity към BookDTO
     private BookDTO mapBookToDTO(BookEntity bookEntity) {
         AuthorDTO authorDTO = new AuthorDTO().setName(bookEntity.getAuthor().getName());
+
         return new BookDTO()
                 .setId(bookEntity.getId())
                 .setAuthor(authorDTO)
