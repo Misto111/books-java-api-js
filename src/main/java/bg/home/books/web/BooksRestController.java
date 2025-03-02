@@ -38,6 +38,7 @@ public class BooksRestController {
         return bookDTOOptional
                 .map(ResponseEntity::ok) // Ако книгата съществува, връщаме я със статус 200 OK
                 .orElse(ResponseEntity.notFound().build()); // Ако не съществува, връщаме 404 Not Found
+        //orElse изчислява стойността веднага, независимо дали е необходима.
     }
 
     // Изтриване на книга по ID
@@ -55,6 +56,7 @@ public class BooksRestController {
         return updatedBook
                 .map(ResponseEntity::ok)  // Ако книгата е обновена, връщаме 200 OK с обновените данни
                 .orElseGet(() -> ResponseEntity.notFound().build());  // Ако книгата не съществува, връщаме 404 Not Found
+        //orElseGet изчислява стойността само ако Optional е празен.
     }
 
     // Създаване на нова книга

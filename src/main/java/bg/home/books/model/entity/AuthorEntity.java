@@ -19,7 +19,7 @@ public class AuthorEntity {
     private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "author")
+    @OneToMany(mappedBy = "author") //mappedBy = "author" в Author указва на JPA, че връзката е дефинирана в BookEntity чрез полето author.
     private List<BookEntity> books;
 
     public Long getId() {
