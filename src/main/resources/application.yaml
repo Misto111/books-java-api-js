@@ -2,8 +2,8 @@ spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/books?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
-    username: ${MYSQL_USER}
-    password: ${MYSQL_PASSWORD}
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:12345}
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
     defer-datasource-initialization: true
