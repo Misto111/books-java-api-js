@@ -19,7 +19,7 @@ public class HomeController {
     @GetMapping
     public String home(Model model) {
         List<BookDTO> books = bookService.getAllBooks();
-        model.addAttribute("index", books);
+        model.addAttribute("books", books);
         return "index";
     }
 }
